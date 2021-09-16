@@ -1,11 +1,11 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Home from "./pages/Home";
-import PDFTools from "./pages/PDFTools";
-import MergePdf from "./pages/PDFTools/MergePdf";
-import WordToPdf from "./pages/PDFTools/WordToPdf";
-import ExcelToPdf from "./pages/PDFTools/ExcelToPdf";
-import PptToPdf from "./pages/PDFTools/PptToPdf";
+import PDFTools from "./pages/PdfTools";
+import MergePdf from "./pages/PdfTools/MergePdf";
+import WordToPdf from "./pages/PdfTools/WordToPdf";
+import ExcelToPdf from "./pages/PdfTools/ExcelToPdf";
+import PptToPdf from "./pages/PdfTools/PptToPdf";
 
 const Router = () => {
   return (
