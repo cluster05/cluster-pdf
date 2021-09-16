@@ -4,19 +4,18 @@ const UploadFile = () => {
 
     const [file, setFile] = useState(null);
 
-    const onFileChange = (event)=>{
+    const onFileChange = (event) => {
         setFile(event.target.files[0]);
     }
 
-    const uplaodFile = ()=>{
+    const uplaodFile = () => {
         const formData = new FormData();
-        formData.append("file",file)
-        
+        formData.append("file", file)
     }
 
     return (
         <div>
-            <input type="file" onChange={onFileChange}/>
+            <input type="file" onChange={onFileChange} />
             <button onClick={uplaodFile}> Uplaod file </button>
         </div>
     )
