@@ -6,6 +6,8 @@ import MergePdf from "./pages/PdfTools/MergePdf";
 import WordToPdf from "./pages/PdfTools/WordToPdf";
 import ExcelToPdf from "./pages/PdfTools/ExcelToPdf";
 import PptToPdf from "./pages/PdfTools/PptToPdf";
+import ImageToPdf from "./pages/PdfTools/ImageToPdf";
+import SplitPdf from './pages/PdfTools/SplitPdf';
 
 const Router = () => {
   return (
@@ -17,8 +19,12 @@ const Router = () => {
         <Route exact path="/pdf-tools">
           <PDFTools />
         </Route>
+
         <Route exact path="/merge-pdf">
           <MergePdf />
+        </Route>
+        <Route exact path="/split-pdf">
+          <SplitPdf />
         </Route>
         <Route exact path="/word-to-pdf">
           <WordToPdf />
@@ -28,6 +34,9 @@ const Router = () => {
         </Route>
         <Route exact path="/ppt-to-pdf">
           <PptToPdf />
+        </Route>
+        <Route exact path="/image-to-pdf">
+          <ImageToPdf />
         </Route>
       </Switch>
     </BrowserRouter>

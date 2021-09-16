@@ -8,7 +8,7 @@ const PptToPdf = () => {
                 title={"PowerPoint Presentation to PDF"}
                 subtitle={"Convert your PowerPoint Presentation to PDF online."}
                 fileType={".ppt"}
-                color={"pink"}
+                color={"yellow"}
             />
         </div>
     )
