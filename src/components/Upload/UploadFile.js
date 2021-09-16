@@ -19,7 +19,6 @@ const UploadFile = ({ fileType }) => {
                     Choose  File from here
                 </span>
             </label>
-            {/* <p className="mt-4 font-medium text-white">or drop file here</p> */}
         </div>
     )
 }
