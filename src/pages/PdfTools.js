@@ -61,7 +61,7 @@ const PDFTools = () => {
               return (
                 <Link to={card.link}>
                   <div className="p-4 border rounded flex">
-                    <img src={card.from} />
+                    <img src={card.from} alt={card.title} />
                     <div>
                       <h3>{card.title}</h3>
                       <p> {card.descripion} </p>
