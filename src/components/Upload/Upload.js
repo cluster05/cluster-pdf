@@ -10,7 +10,7 @@ const Upload = ({ title, subtitle, color, fileType }) => {
         <div>
             <div className="my-10 flex items-center flex-col">
                 <h1 className="text-4xl tracking-wide">{title}</h1>
-                <p className="max-w-3xl  text-2xl my-4 tracking-wide font-medium text-center">{subtitle}</p>
+                <p className="max-w-3xl  text-2xl my-4 tracking-wide font-light text-center">{subtitle}</p>
             </div>
             <div className="mt-28 flex items-center justify-center" >
                 <div className={classes} style={{ borderWidth: '16px' }}>

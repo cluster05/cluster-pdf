@@ -7,6 +7,8 @@ const UploadFile = ({ fileType }) => {
 
     const onFileChange = (event) => {
         setFile(event.target.files[0]);
+
+
     }
 
 
