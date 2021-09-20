@@ -2,10 +2,12 @@ import React, { useState } from 'react'
 import UplaodFile from './UploadFile';
 import UploadLoading from './UploadLoading';
 import axios from 'axios';
+import { useHistory } from 'react-router';
 
 const Upload = ({ title, subtitle, color, fileType }) => {
 
     const [loading, setLoading] = useState(false);
+    const history = useHistory();
 
     const fileChangeHandler = async (event) => {
         setLoading(true);
@@ -35,6 +37,8 @@ const Upload = ({ title, subtitle, color, fileType }) => {
             );
             
             setLoading(false);
+            history.push('/view-pdf/pdfid');
+            
         } catch (error) {
             setLoading(false);
             alert('Error : ',error.response.message)
