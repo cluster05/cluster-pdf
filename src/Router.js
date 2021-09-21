@@ -47,7 +47,6 @@ const Router = () => {
         <Route exact path="/pdf-to-ppt">
           <PdfToPpt />
         </Route>
-
         <Route exact path="/image-to-pdf">
           <ImageToPdf />
         </Route>

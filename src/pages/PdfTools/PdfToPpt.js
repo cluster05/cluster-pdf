@@ -1,9 +1,15 @@
 import React from 'react'
+import Upload from '../../components/Upload/Upload';
 
 const PdfToPpt = () => {
     return (
         <div>
-            pdf to ppt work
+               <Upload
+                title={"PDF to PPT"}
+                subtitle={"Convert yout PDF into PowerPoint Presentation."}
+                fileType={".pdf"}
+                color={"red"}
+            />
         </div>
     )
 }
