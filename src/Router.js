@@ -9,6 +9,9 @@ import PptToPdf from "./pages/PdfTools/PptToPdf";
 import ImageToPdf from "./pages/PdfTools/ImageToPdf";
 import SplitPdf from './pages/PdfTools/SplitPdf';
 import ViewPdf from "./pages/ViewPdf";
+import PdfToExcel from "./pages/PdfTools/PdfToExcel";
+import PdfToPpt from "./pages/PdfTools/PdfToPpt";
+import PdfToWord from "./pages/PdfTools/PdfToWord";
 
 const Router = () => {
   return (
@@ -35,6 +38,16 @@ const Router = () => {
         <Route exact path="/ppt-to-pdf">
           <PptToPdf />
         </Route>
+        <Route exact path="/pdf-to-word">
+          <PdfToWord />
+        </Route>
+        <Route exact path="/pdf-to-excel">
+          <PdfToExcel />
+        </Route>
+        <Route exact path="/pdf-to-ppt">
+          <PdfToPpt />
+        </Route>
+
         <Route exact path="/image-to-pdf">
           <ImageToPdf />
         </Route>

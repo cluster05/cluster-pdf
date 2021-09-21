@@ -22,7 +22,13 @@ const Cards = () => {
             to: pdfIcon,
             link: 'split-pdf'
         },
-
+        {
+            title: 'Image to PDF',
+            descripion: 'Transform JPG, PNG, GIF, and BMP to PDF',
+            from: imageIcon,
+            to: pdfIcon,
+            link: 'image-to-pdf'
+        },
         {
             title: 'Word to PDF',
             descripion: 'Convert Word document to PDF Files',
@@ -39,18 +45,33 @@ const Cards = () => {
         },
         {
             title: 'Excel to PDF',
-            descripion: 'Convert Excek spreadsheets to PDF documents',
+            descripion: 'Convert Excel spreadsheets to PDF documents',
             from: excelIcon,
             to: pdfIcon,
             link: 'excel-to-pdf'
         },
         {
-            title: 'Image to PDF',
-            descripion: 'Transform JPG, PNG, GIF, and BMP to PDF',
-            from: imageIcon,
-            to: pdfIcon,
-            link: 'image-to-pdf'
+            title: 'PDF to Word',
+            descripion: 'Convert PDF document to Word documents',
+            from: pdfIcon,
+            to: wordIcon,
+            link: 'pdf-to-word'
         },
+        {
+            title: 'PDF to PPT',
+            descripion: 'Convert PDF documents to PowerPoint presentation',
+            from: pdfIcon,
+            to: pptIcon,
+            link: 'pdf-to-ppt'
+        },
+        {
+            title: 'PDF to Excel',
+            descripion: 'Convert PDF documents to Excel spreadsheets',
+            from: pdfIcon,
+            to: excelIcon,
+            link: 'pdf-to-excel'
+        },
+      
     ]
     return (
         <div className="mt-28 flex items-center justify-center" >
