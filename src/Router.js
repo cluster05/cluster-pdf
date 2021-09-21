@@ -8,7 +8,7 @@ import ExcelToPdf from "./pages/PdfTools/ExcelToPdf";
 import PptToPdf from "./pages/PdfTools/PptToPdf";
 import ImageToPdf from "./pages/PdfTools/ImageToPdf";
 import SplitPdf from './pages/PdfTools/SplitPdf';
-import ViewPdf from "./pages/ViewPdf";
+import ViewPdf from "./pages/ViewPdf/ViewPdf";
 import PdfToExcel from "./pages/PdfTools/PdfToExcel";
 import PdfToPpt from "./pages/PdfTools/PdfToPpt";
 import PdfToWord from "./pages/PdfTools/PdfToWord";

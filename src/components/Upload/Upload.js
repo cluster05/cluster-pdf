@@ -25,7 +25,7 @@ const Upload = ({ title, subtitle, color, fileType }) => {
                     }
                 }
             );
-            const url = response.data.url;
+            let url = response.data.url;
 
             response = await axios.post(
                 'http://localhost:8080/document/convert',
@@ -37,7 +37,9 @@ const Upload = ({ title, subtitle, color, fileType }) => {
             );
             
             setLoading(false);
-            history.push('/view-pdf/pdfid');
+            url = response.data.url.split('/');
+            const pdfId = url[url.length - 1];
+            history.push(`/view-pdf/${pdfId}`);
             
         } catch (error) {
             setLoading(false);
