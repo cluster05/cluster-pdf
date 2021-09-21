@@ -44,8 +44,6 @@ const Upload = ({ title, subtitle, color, fileType }) => {
             alert('Error : ',error.response.message)
         }
 
-
-
     }
 
     const classes = `min-w-max max-w-5xl w-full rounded border-${color}-400 bg-${color}-500 `;
