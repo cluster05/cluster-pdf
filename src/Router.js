@@ -12,6 +12,7 @@ import ViewPdf from "./pages/ViewPdf/ViewPdf";
 import PdfToExcel from "./pages/PdfTools/PdfToExcel";
 import PdfToPpt from "./pages/PdfTools/PdfToPpt";
 import PdfToWord from "./pages/PdfTools/PdfToWord";
+import CompressPdf from "./pages/PdfTools/CompressPdf";
 
 const Router = () => {
   return (
@@ -28,6 +29,9 @@ const Router = () => {
         </Route>
         <Route exact path="/split-pdf">
           <SplitPdf />
+        </Route>
+        <Route exact path="/compress-pdf">
+          <CompressPdf />
         </Route>
         <Route exact path="/word-to-pdf">
           <WordToPdf />

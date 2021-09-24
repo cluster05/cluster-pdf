@@ -21,6 +21,12 @@ const Cards = () => {
             link: 'split-pdf'
         },
         {
+            title: 'Compress PDF',
+            descripion: 'Compress your PDF',
+            icon: pdfIcon,
+            link: 'compress-pdf'
+        },
+        {
             title: 'Image to PDF',
             descripion: 'Transform JPG, PNG, GIF, and BMP to PDF',
             icon: imageIcon,
