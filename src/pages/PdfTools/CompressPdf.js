@@ -2,6 +2,11 @@ import React from 'react'
 import Upload from '../../components/Upload/Upload'
 
 const CompressPdf = () => {
+
+    const APIRequestBody = {
+           
+    }
+
     return (
         <div>
             <Upload
@@ -9,6 +14,7 @@ const CompressPdf = () => {
                 subtitle={"Compress your PDF"}
                 fileType={".pdf"}
                 color={"red"}
+                body={APIRequestBody}
             />
         </div>
     )

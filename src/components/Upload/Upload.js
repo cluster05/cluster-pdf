@@ -4,20 +4,22 @@ import UploadLoading from './UploadLoading';
 import axios from 'axios';
 import { useHistory } from 'react-router';
 
-const Upload = ({ title, subtitle, color, fileType }) => {
+const Upload = ({ title, subtitle, color, fileType,APIRequestBody }) => {
 
     const [loading, setLoading] = useState(false);
     const history = useHistory();
+    const [uplaodigStage, setUplaodigStage] = useState('uploading');
 
     const fileChangeHandler = async (event) => {
-        setLoading(true);
         const file =await event.target.files[0];
         const formData = new FormData();
         formData.append('file', file);
+        setLoading(true);
+        setUplaodigStage('uploading')
 
         try {
             let response = await axios.post(
-                'http://localhost:8080/document',
+                'http://localhost:8080/document/upload',
                 formData,
                 {
                     headers: {
@@ -25,24 +27,28 @@ const Upload = ({ title, subtitle, color, fileType }) => {
                     }
                 }
             );
+           
+            setUplaodigStage('processing')
             let url = response.data.url;
 
             response = await axios.post(
                 'http://localhost:8080/document/convert',
                 {
-                    from: 'office',
-                    to: 'pdf',
+                    ...APIRequestBody,
                     url
                 }
             );
             
             setLoading(false);
+            setUplaodigStage('uploading')
             url = response.data.url.split('/');
             const pdfId = url[url.length - 1];
             history.push(`/view-pdf/${pdfId}`);
+          
             
         } catch (error) {
             setLoading(false);
+            setUplaodigStage('uploading')
             alert('Error : ',error.response.message)
         }
 
@@ -62,7 +68,7 @@ const Upload = ({ title, subtitle, color, fileType }) => {
                        
                        {
                            loading ? 
-                           <UploadLoading/> :
+                           <UploadLoading stage={uplaodigStage}/> :
                            <UplaodFile fileChangeHandler={fileChangeHandler} fileType={fileType} />
                     
                        }

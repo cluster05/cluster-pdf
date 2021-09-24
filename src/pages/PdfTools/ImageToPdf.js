@@ -2,6 +2,14 @@ import React from 'react'
 import Upload from '../../components/Upload/Upload';
 
 const ImageToPdf = () => {
+
+    const APIRequestBody = {
+        from: 'image',
+        to: 'pdf',
+        fromType : 'image',
+        toType :'pdf',
+    }
+
     return (
         <div className="">
             <Upload
@@ -9,6 +17,7 @@ const ImageToPdf = () => {
                 subtitle={"Convert your JPG, JPEG, PNG, BITMAP to PDF online."}
                 fileType={"image/*"}
                 color={"indigo"}
+                APIRequestBody={APIRequestBody}
             />
         </div>
     )

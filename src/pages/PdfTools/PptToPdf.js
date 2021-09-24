@@ -2,6 +2,14 @@ import React from 'react'
 import Upload from '../../components/Upload/Upload';
 
 const PptToPdf = () => {
+
+    const APIRequestBody = {
+        from: 'office',
+        to: 'pdf',
+        fromType : 'ppt',
+        toType :'pdf',
+    }
+
     return (
         <div>
             <Upload
@@ -9,6 +17,7 @@ const PptToPdf = () => {
                 subtitle={"Convert your PowerPoint Presentation to PDF online."}
                 fileType={".ppt"}
                 color={"yellow"}
+                APIRequestBody={APIRequestBody}
             />
         </div>
     )
