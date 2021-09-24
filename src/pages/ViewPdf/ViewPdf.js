@@ -1,5 +1,5 @@
 import React , { useState } from 'react'
-import { useParams } from 'react-router'
+import { useLocation} from 'react-router'
 import { Document, Page } from 'react-pdf';
 import { pdfjs } from 'react-pdf';
 import './ViewPdf.css';
@@ -15,7 +15,12 @@ const options = {
 const ViewPdf = () => {
 
 
-    const { pdfId } = useParams();
+    const useQuery=() =>{
+      return new URLSearchParams(useLocation().search);
+    }
+
+    const query = useQuery()
+
     
     const [numPages, setNumPages] = useState(null);
 
@@ -28,7 +33,7 @@ const ViewPdf = () => {
         <div className="col-span-5 w-full flex h-screen overflow-y-scroll justify-center">
           <Document
             className=" m-10  flex flex-wrap"
-            file={`http://localhost:8080/document/${pdfId}`}
+            file={`http://localhost:8080/document/${query.get('filename')}`}
             onLoadSuccess={onDocumentLoadSuccess}
             options={options}
             >
@@ -62,7 +67,7 @@ const ViewPdf = () => {
                   <a  
                     className="px-8 py-3 text-2xl font-bold capitalize rounded bg-blue-600 text-white" 
                     download="filename"
-                    href={`http://localhost:8080/document/${pdfId}`}> download PDF </a>
+                    href={`http://localhost:8080/document/${query.get('filename')}`}> download PDF </a>
                 </div>
               </div>
 

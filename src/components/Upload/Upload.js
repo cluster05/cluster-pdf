@@ -43,13 +43,15 @@ const Upload = ({ title, subtitle, color, fileType,APIRequestBody }) => {
             setUplaodigStage('uploading')
             url = response.data.url.split('/');
             const pdfId = url[url.length - 1];
-            history.push(`/view-pdf/${pdfId}`);
+            const splitSlash = history.location.pathname.split('/')
+            const currentRoute = splitSlash[splitSlash.length-1] ;
+            history.push(`/view-pdf?filename=${pdfId}&opration=${currentRoute}`);
           
             
         } catch (error) {
             setLoading(false);
             setUplaodigStage('uploading')
-            alert('Error : ',error.response.message)
+            alert(error.response.data.message)
         }
 
     }

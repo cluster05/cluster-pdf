@@ -54,7 +54,7 @@ const Router = () => {
         <Route exact path="/image-to-pdf">
           <ImageToPdf />
         </Route>
-        <Route exact path="/view-pdf/:pdfId">
+        <Route exact path="/view-pdf">
           <ViewPdf />
         </Route>
       </Switch>
