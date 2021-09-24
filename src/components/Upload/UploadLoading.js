@@ -8,12 +8,16 @@ const UploadLoading = ({stage = 'uploading'}) => {
         {
             stage === 'uploading'?
             <div className=" flex flex-col items-center">
-                <img className="h-28 rounded my-4 " src={UploadingFile} alt="Processing your file logo"/>
-                <p className="mt-4 text-2xl font-semibold "> Uploading file ... </p>
+                 <div className="p-2 rounded bg-white">
+                    <img className="h-28 w-full rounded my-4 " src={UploadingFile} alt="Processing your file logo"/>
+                 </div>
+                <p className="mt-4 text-2xl font-semibold "> Uploading </p>
             </div> :
             <div className=" flex flex-col items-center">
-                 <img className="h-28 rounded my-4 " src={ScannigFile} alt="Processing your file logo"/>
-                 <p className="mt-4 text-2xl font-semibold "> Processing your file please wait... </p>
+                 <div className="p-2 rounded bg-white">
+                    <img className="h-28 w-full rounded my-4 " src={ScannigFile} alt="Processing your file logo"/>
+                 </div>
+                 <p className="mt-4 text-2xl font-semibold "> Converting </p>
             </div>
         }
        

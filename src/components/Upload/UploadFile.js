@@ -9,7 +9,7 @@ const UploadFile = ({ fileChangeHandler,fileType }) => {
                 <VscFile />
             </span>
         <div className="flex flex-col items-center">
-            <label for="file" className="px-8 py-4 rounded  bg-gray-50 cursor-pointer  flex items-center">
+            <label htmlFor="file" className="px-8 py-4 rounded  bg-gray-50 cursor-pointer  flex items-center">
                 <input type="file" id="file" name="file" accept={fileType} className="hidden" onChange={fileChangeHandler} />
                 <span className="m-1 text-2xl text-gray-600"> <VscFile /> </span>
                 <span className="ml-2 font-semibold tracking-wide text-sm uppercase text-black">
