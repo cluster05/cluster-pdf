@@ -76,7 +76,7 @@ const Cards = () => {
                 {
                     cards.map(card => {
                         return (
-                            <Card card={card} />
+                            <Card key={card.title} card={card} />
                         )
                     })
                 }
