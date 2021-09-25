@@ -6,7 +6,7 @@ const ImageToPdf = () => {
     const APIRequestBody = {
         from: 'image',
         to: 'pdf',
-        fromType : 'image',
+        fromType : 'gif',
         toType :'pdf',
     }
 
