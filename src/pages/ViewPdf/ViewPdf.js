@@ -3,6 +3,8 @@ import { useLocation} from 'react-router'
 import { Document, Page } from 'react-pdf';
 import { pdfjs } from 'react-pdf';
 import './ViewPdf.css';
+import FailedTOLoad from './FailedTOLoad';
+import LoadingPDF from './LoadingPDF';
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
@@ -18,9 +20,10 @@ const ViewPdf = () => {
     const useQuery=() =>{
       return new URLSearchParams(useLocation().search);
     }
-
     const query = useQuery()
-    
+    const filename = query.get('filename');
+    const backUrl = query.get('opration');
+
     const [numPages, setNumPages] = useState(null);
 
     function onDocumentLoadSuccess({numPages}) {
@@ -32,9 +35,11 @@ const ViewPdf = () => {
       <div className="">
         <div className="flex justify-center">
           <Document
-            file={`http://localhost:8080/document/${query.get('filename')}`}
+            file={`http://localhost:8080/document/${filename}`}
             onLoadSuccess={onDocumentLoadSuccess}
             options={options}
+            error={<FailedTOLoad backUrl={backUrl}/>}
+            loading={<LoadingPDF/>}
             >
             {
               Array.from(
