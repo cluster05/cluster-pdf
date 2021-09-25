@@ -5,6 +5,7 @@ import { pdfjs } from 'react-pdf';
 import './ViewPdf.css';
 import FailedTOLoad from './FailedTOLoad';
 import LoadingPDF from './LoadingPDF';
+import VPNavbar from './VPNavbar/VPNavbar';
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
@@ -23,6 +24,7 @@ const ViewPdf = () => {
     const query = useQuery()
     const filename = query.get('filename');
     const backUrl = query.get('opration');
+    const downloadUrl = `http://localhost:8080/document/${filename}`;
 
     const [numPages, setNumPages] = useState(null);
 
@@ -32,10 +34,11 @@ const ViewPdf = () => {
 
 
     return (
-      <div className="">
+      <div>
+        <VPNavbar opration={backUrl} downloadUrl={downloadUrl}/>
         <div className="flex justify-center">
           <Document
-            file={`http://localhost:8080/document/${filename}`}
+            file={downloadUrl}
             onLoadSuccess={onDocumentLoadSuccess}
             options={options}
             error={<FailedTOLoad backUrl={backUrl}/>}
@@ -55,28 +58,8 @@ const ViewPdf = () => {
                 }
           </Document>
         </div>
-        {/* <div className="col-span-2"> 
-              <div className="bg-gray-100 h-full ">
-                <div className="px-5 py-10">
-                <h2 className="text-5xl font-bold"> ClusterPdf </h2>
-                <p className="text-gray-800 font-medium text-xl my-2"> Conveted Word Document into PDF </p>
-               
-                <div className="border border-gray-800 mb-10"></div>
-                <div className="flex items-center">
-                  <p className="my-3 text-2xl"> pdf name goes here.pdf </p>
-                  <button className="ml-5 px-2 py-1 capitalize rounded bg-green-500 text-white">change name</button>
-                </div>
-                  <div className="mt-10"></div>
-                  <a  
-                    className="px-8 py-3 text-2xl font-bold capitalize rounded bg-blue-600 text-white" 
-                    download="filename"
-                    href={`http://localhost:8080/document/${query.get('filename')}`}> download PDF </a>
-                </div>
-              </div>
-
-         </div> */}
        
-      </div>
+    </div>
 
     )
 }
