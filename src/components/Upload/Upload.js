@@ -30,12 +30,15 @@ const Upload = ({ title, subtitle, color, fileType,APIRequestBody }) => {
            
             setUplaodigStage('processing')
             let url = response.data.url;
+            const urlSplit = url.split('.');
+            const fromType = urlSplit[urlSplit.length - 1 ];
 
             response = await axios.post(
                 'http://localhost:8080/document/convert',
                 {
                     ...APIRequestBody,
-                    url
+                    url,
+                    fromType
                 }
             );
             
