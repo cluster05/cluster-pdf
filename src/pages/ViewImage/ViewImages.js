@@ -1,16 +1,18 @@
 import React, { useState,useEffect } from 'react'
 import { BsDownload } from 'react-icons/bs';
+import { useHistory } from 'react-router';
 
 const ViewImages = () => {
 
     const [images, setImages] = useState([]);
-
+    const history =  useHistory();
     useEffect(() => {
 
         const imgs = JSON.parse(localStorage.getItem('images'))
-        if(imgs){
-            setImages(imgs);
+        if(!imgs){
+            history.push('/');
         }
+        setImages(imgs);
     }, [])
 
     const download = (image) => {
