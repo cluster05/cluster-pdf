@@ -33,6 +33,12 @@ const Cards = () => {
             link: 'image-to-pdf'
         },
         {
+            title: 'PDF to Images',
+            descripion: 'Transform PDF to JPG, PNG',
+            icon: pdfIcon,
+            link: 'pdf-to-image'
+        },
+        {
             title: 'Word to PDF',
             descripion: 'Convert Word document to PDF Files',
             icon: wordIcon,

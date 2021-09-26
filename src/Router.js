@@ -13,6 +13,7 @@ import PdfToExcel from "./pages/PdfTools/PdfToExcel";
 import PdfToPpt from "./pages/PdfTools/PdfToPpt";
 import PdfToWord from "./pages/PdfTools/PdfToWord";
 import CompressPdf from "./pages/PdfTools/CompressPdf";
+import PdfToImage from "./pages/PdfTools/PdfToImage";
 
 const Router = () => {
   return (
@@ -53,6 +54,9 @@ const Router = () => {
         </Route>
         <Route exact path="/image-to-pdf">
           <ImageToPdf />
+        </Route>
+        <Route exact path="/pdf-to-image">
+          <PdfToImage />
         </Route>
         <Route exact path="/view-pdf">
           <ViewPdf />
