@@ -1,19 +1,24 @@
 import React, { useState } from 'react'
-import UplaodFile from './UploadFile';
-import UploadLoading from './UploadLoading';
+import SelectFileUI from '../SelectFileUI';
+import UploadLoading from '../UploadLoading';
 import axios from 'axios';
 import { useHistory } from 'react-router';
 
-const Upload = ({ title, subtitle, color, fileType,APIRequestBody , baseUrl }) => {
+const UploadConvert = ({ componentMetadata , apiMetadeta }) => {
 
-    const [loading, setLoading] = useState(false);
+    const { title, subtitle, color, fileType} = componentMetadata;
+    const { APIRequestBody } = apiMetadeta;
+
     const history = useHistory();
+    const [loading, setLoading] = useState(false);
     const [uplaodigStage, setUplaodigStage] = useState('uploading');
 
     const fileChangeHandler = async (event) => {
-        const file =await event.target.files[0];
+        
+        const file = await event.target.files[0];
         const formData = new FormData();
         formData.append('file', file);
+        
         setLoading(true);
         setUplaodigStage('uploading')
 
@@ -29,16 +34,17 @@ const Upload = ({ title, subtitle, color, fileType,APIRequestBody , baseUrl }) =
             );
            
             setUplaodigStage('processing')
+            
             let url = response.data.url;
-            const urlSplit = url.split('.');
-            const fromType = urlSplit[urlSplit.length - 1 ];
+            const urlSplited = url.split('.');
+            const fromType = urlSplited[urlSplited.length-1];
 
             response = await axios.post(
-                baseUrl,
+                'http://localhost:8080/document/convert',
                 {
                     ...APIRequestBody,
-                    url,
-                    fromType
+                    fromType,
+                    url
                 }
             );
             
@@ -51,16 +57,8 @@ const Upload = ({ title, subtitle, color, fileType,APIRequestBody , baseUrl }) =
                 return
             }
 
-            url = response.data.url.split('/');
-            const pdfId = url[url.length - 1];
-
-            const splitSlash = history.location.pathname.split('/')
-
-            const currentRoute = splitSlash[splitSlash.length-1] ;
-
-            history.push(`/view-pdf?filename=${pdfId}&opration=${currentRoute}`);
-          
-            
+            history.push(`/view-pdf?filename=${response.data.key}`);
+                  
         } catch (error) {
             setLoading(false);
             setUplaodigStage('uploading')
@@ -84,8 +82,7 @@ const Upload = ({ title, subtitle, color, fileType,APIRequestBody , baseUrl }) =
                        {
                            loading ? 
                            <UploadLoading stage={uplaodigStage}/> :
-                           <UplaodFile fileChangeHandler={fileChangeHandler} fileType={fileType} />
-                    
+                           <SelectFileUI fileChangeHandler={fileChangeHandler} fileType={fileType} />
                        }
                     </div>
                 </div>
@@ -94,4 +91,4 @@ const Upload = ({ title, subtitle, color, fileType,APIRequestBody , baseUrl }) =
     )
 }
 
-export default Upload
+export default UploadConvert

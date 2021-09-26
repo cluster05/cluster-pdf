@@ -1,20 +1,13 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Home from "./pages/Home";
-import PDFTools from "./pages/PdfTools";
-import MergePdf from "./pages/PdfTools/MergePdf";
-import WordToPdf from "./pages/PdfTools/WordToPdf";
-import ExcelToPdf from "./pages/PdfTools/ExcelToPdf";
-import PptToPdf from "./pages/PdfTools/PptToPdf";
-import ImageToPdf from "./pages/PdfTools/ImageToPdf";
-import SplitPdf from './pages/PdfTools/SplitPdf';
+import Merge from "./pages/PdfTools/Merge";
+import Split from './pages/PdfTools/Split';
 import ViewPdf from "./pages/ViewPdf/ViewPdf";
-import PdfToExcel from "./pages/PdfTools/PdfToExcel";
-import PdfToPpt from "./pages/PdfTools/PdfToPpt";
-import PdfToWord from "./pages/PdfTools/PdfToWord";
-import CompressPdf from "./pages/PdfTools/CompressPdf";
-import PdfToImage from "./pages/PdfTools/PdfToImage";
+import Compress from "./pages/PdfTools/Compress";
 import ViewImages from './pages/ViewImage/ViewImages';
+import Convert from './pages/PdfTools/Convert';
+import PDFTools from './pages/PdfTools';
 
 const Router = () => {
   return (
@@ -26,38 +19,23 @@ const Router = () => {
         <Route exact path="/pdf-tools">
           <PDFTools />
         </Route>
+        <Route 
+          exact 
+          path={[
+            "/pdf-to-word","/pdf-to-excel","/pdf-to-ppt","/pdf-to-image",
+            "/word-to-pdf","/excel-to-pdf","/ppt-to-pdf","/image-to-pdf"
+          ]}
+        >
+          <Convert/>
+        </Route>
         <Route exact path="/merge-pdf">
-          <MergePdf />
+          <Merge />
         </Route>
         <Route exact path="/split-pdf">
-          <SplitPdf />
+          <Split />
         </Route>
         <Route exact path="/compress-pdf">
-          <CompressPdf />
-        </Route>
-        <Route exact path="/word-to-pdf">
-          <WordToPdf />
-        </Route>
-        <Route exact path="/excel-to-pdf">
-          <ExcelToPdf />
-        </Route>
-        <Route exact path="/ppt-to-pdf">
-          <PptToPdf />
-        </Route>
-        <Route exact path="/pdf-to-word">
-          <PdfToWord />
-        </Route>
-        <Route exact path="/pdf-to-excel">
-          <PdfToExcel />
-        </Route>
-        <Route exact path="/pdf-to-ppt">
-          <PdfToPpt />
-        </Route>
-        <Route exact path="/image-to-pdf">
-          <ImageToPdf />
-        </Route>
-        <Route exact path="/pdf-to-image">
-          <PdfToImage />
+          <Compress />
         </Route>
         <Route exact path="/view-pdf">
           <ViewPdf />

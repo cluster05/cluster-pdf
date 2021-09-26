@@ -1,7 +1,7 @@
 import React from 'react'
 import { VscFile } from "react-icons/vsc";
 
-const UploadFile = ({ fileChangeHandler,fileType }) => {
+const SelectFileUI = ({ fileChangeHandler,fileType }) => {
 
     return (
         <div className="text-xl text-white  flex flex-col items-center">
@@ -21,4 +21,4 @@ const UploadFile = ({ fileChangeHandler,fileType }) => {
     )
 }
 
-export default UploadFile
+export default SelectFileUI
