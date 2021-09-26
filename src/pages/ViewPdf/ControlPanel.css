@@ -1,0 +1,13 @@
+.icon {
+  @apply mx-2 p-2 rounded cursor-pointer text-gray-700 text-sm;
+}
+
+@screen md {
+  .icon {
+    @apply mx-5 p-2;
+  }
+}
+
+.icon:hover {
+  @apply bg-gray-200;
+}

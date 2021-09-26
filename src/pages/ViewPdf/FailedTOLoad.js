@@ -2,12 +2,13 @@ import React from 'react'
 import { useHistory } from 'react-router'
 
 
-const FailedTOLoad = (backUrl) => {
+const FailedTOLoad = ({backUrl}) => {
 
     const history = useHistory()
 
     const redirectTo = ()=>{
-        history.push(`/${backUrl.backUrl}`)
+        history.push(`/${backUrl}`)
+
     }
 
     return (
