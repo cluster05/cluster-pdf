@@ -1,14 +1,11 @@
 import React from 'react'
+import UploadMerge from '../../components/UploadMerge/UploadMerge';
 
 const Merge = () => {
 
-    // const APIRequestBody = {
-    //     urls : []      
-    // }
-
     return (
         <div>
-            Me rge pdf work
+           <UploadMerge/>
         </div>
     )
 }
