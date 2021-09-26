@@ -14,6 +14,7 @@ import PdfToPpt from "./pages/PdfTools/PdfToPpt";
 import PdfToWord from "./pages/PdfTools/PdfToWord";
 import CompressPdf from "./pages/PdfTools/CompressPdf";
 import PdfToImage from "./pages/PdfTools/PdfToImage";
+import ViewImages from './pages/ViewImage/ViewImages';
 
 const Router = () => {
   return (
@@ -60,6 +61,9 @@ const Router = () => {
         </Route>
         <Route exact path="/view-pdf">
           <ViewPdf />
+        </Route>
+        <Route exact path="/view-images">
+          <ViewImages />
         </Route>
       </Switch>
     </BrowserRouter>
