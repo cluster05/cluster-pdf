@@ -15,6 +15,7 @@ const CompressPdf = () => {
                 fileType={".pdf"}
                 color={"red"}
                 body={APIRequestBody}
+                baseUrl={"http://localhost:8080/document/compress"}
             />
         </div>
     )

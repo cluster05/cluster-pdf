@@ -4,7 +4,7 @@ import UploadLoading from './UploadLoading';
 import axios from 'axios';
 import { useHistory } from 'react-router';
 
-const Upload = ({ title, subtitle, color, fileType,APIRequestBody }) => {
+const Upload = ({ title, subtitle, color, fileType,APIRequestBody , baseUrl }) => {
 
     const [loading, setLoading] = useState(false);
     const history = useHistory();
@@ -34,7 +34,7 @@ const Upload = ({ title, subtitle, color, fileType,APIRequestBody }) => {
             const fromType = urlSplit[urlSplit.length - 1 ];
 
             response = await axios.post(
-                'http://localhost:8080/document/convert',
+                baseUrl,
                 {
                     ...APIRequestBody,
                     url,

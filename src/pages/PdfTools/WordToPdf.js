@@ -18,6 +18,7 @@ const WordToPdf = () => {
                 fileType={".doc,.docx"}
                 color={"blue"}
                 APIRequestBody={APIRequestBody}
+                baseUrl={"http://localhost:8080/document/convert"}
             />
         </div>
     )

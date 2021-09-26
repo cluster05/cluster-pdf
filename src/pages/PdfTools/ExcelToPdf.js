@@ -17,6 +17,7 @@ const ExcelToPdf = () => {
                 fileType={".xls,.xlsx"}
                 color={"green"}
                 APIRequestBody={APIRequestBody}
+                baseUrl={"http://localhost:8080/document/convert"}
             />
         </div>
     )

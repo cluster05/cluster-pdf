@@ -18,6 +18,7 @@ const PdfToPpt = () => {
                 fileType={".pdf"}
                 color={"red"}
                 APIRequestBody={APIRequestBody}
+                baseUrl={"http://localhost:8080/document/convert"}
             />
         </div>
     )
