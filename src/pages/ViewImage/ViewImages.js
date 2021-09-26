@@ -40,7 +40,7 @@ const ViewImages = () => {
                             <BsDownload/>
                         </span>
                       
-                        <img  src={image.url} className="border rounded shadow-md" alt={image.page}/>    
+                        <img loading="lazy"  src={image.url} className="border rounded shadow-md" alt={image.page}/>    
                     </div>
                     ))
                 }
