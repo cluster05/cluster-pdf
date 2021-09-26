@@ -19,7 +19,7 @@ const ControlPanel = (props) => {
   };
 
   return (
-    <div className=" m-3 px-10 py-4 text-black bg-gray-100 rounded w-auto flex items-center justify-between">
+    <div className=" m-3 px-5 py-4 text-black bg-gray-100 rounded w-auto flex items-center justify-between">
       <div className="flex justify-between items-center">
         <span
             onClick={zoomOut}
@@ -40,6 +40,9 @@ const ControlPanel = (props) => {
         <a href={file} download={true} title="download" target="_blank" rel="noreferrer">
           <FaDownload/>
         </a>
+      </div>
+      <div className="icon ">
+        <PDFPrinter file={file}/>
       </div>
     </div>
   );
