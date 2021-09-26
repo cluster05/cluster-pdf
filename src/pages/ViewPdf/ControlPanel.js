@@ -18,6 +18,20 @@ const ControlPanel = (props) => {
     if (!isMaxZoom) setScale(scale + 0.1);
   };
 
+  const download = (pdfUrl) => {
+    var element = document.createElement("a");
+    var file = new Blob(
+      [
+        pdfUrl
+      ],
+      { type: ".pdf" }
+    );
+    element.href = URL.createObjectURL(file);
+    element.download = `clusterpdf-converted.pdf`;
+    element.click();
+  };
+
+
   return (
     <div className=" m-3 px-5 py-4 text-black bg-gray-100 rounded w-auto flex items-center justify-between">
       <div className="flex justify-between items-center">
@@ -37,9 +51,9 @@ const ControlPanel = (props) => {
         
       </div>
       <div className="icon ">
-        <a href={file} download={true} title="download" target="_blank" rel="noreferrer">
+        <span  title="download" onClick={()=>download(file)}>
           <FaDownload/>
-        </a>
+        </span>
       </div>
       <div className="icon ">
         <PDFPrinter file={file}/>
