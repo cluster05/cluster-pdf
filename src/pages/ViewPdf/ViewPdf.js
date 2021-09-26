@@ -1,4 +1,4 @@
-import React , { useState } from 'react'
+import React , { useState ,useEffect} from 'react'
 import { useLocation} from 'react-router'
 import FailedTOLoad from './FailedTOLoad';
 import Loader from './LoadingPDF';
@@ -23,12 +23,22 @@ const ViewPdf = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [pdfLoadingError, setPdfLoadingError] = useState(false);
 
-    function onDocumentLoadSuccess({ numPages }) {
+    useEffect(() => {
+      
+      window.innerWidth < 500 ? setScale(0.5) : setScale(window.innerWidth / 800);
+      
+      if(scale >= 2){
+        setScale(2);
+      }
+
+    }, [scale])
+
+    const  onDocumentLoadSuccess = ({ numPages }) => {
       setNumPages(numPages);
       setIsLoading(false);
     }
 
-    function onDocumentLoadError(error){
+    const  onDocumentLoadError =  ()=>{
       setIsLoading(false);
       setPdfLoadingError(true);
     }
