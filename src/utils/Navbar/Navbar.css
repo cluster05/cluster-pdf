@@ -1,0 +1,7 @@
+.tools .menu {
+  display: none;
+}
+
+.tools:hover .menu {
+  display: block;
+}
