@@ -64,7 +64,7 @@ const UploadMerge = () => {
         
         const mergeHandler = async()=>{
             
-            if(uplaodigStage == 'processing'){
+            if(uplaodigStage === 'processing'){
                 return
             }
             try {
@@ -119,7 +119,7 @@ const UploadMerge = () => {
                             
                             <button onClick={mergeHandler} className="px-5 py-2 rounded shadow font-semibold text-white bg-red-400 hover:bg-red-300 flex items-center"> 
                                 {
-                                    uplaodigStage == 'processing' ? 
+                                    uplaodigStage === 'processing' ? 
                                     <VscLoading className="text-3xl animate-spin"/> : 
                                     <div className="flex items-center">
                                         <BiMerge className="mr-2 text-xl"/>

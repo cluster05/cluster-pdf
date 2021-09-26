@@ -2,12 +2,11 @@ import React, { useState } from 'react'
 import SelectFileUI from '../SelectFileUI';
 import UploadLoading from '../UploadLoading';
 import axios from 'axios';
-import { useHistory } from 'react-router';
 import ViewSplitView from '../../pages/ViewPdf/ViewSplitView';
 
 const UploadSplit = () => {
 
-    const history = useHistory();
+   
     const [loading, setLoading] = useState(false);
     const [showPreview, setShowPreview] = useState(false);
     const [fileUrl, setFileUrl] = useState('');

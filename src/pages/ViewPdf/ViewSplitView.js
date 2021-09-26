@@ -11,14 +11,12 @@ pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/$
 const ViewSplitView = ({downloadUrl}) => {
 
     const history =  useHistory();
-    const [numPages, setNumPages] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const [checkBoxes, setCheckBoxes] = useState([]);
 
     const [isProcessingStart, setIsProcessingStart] = useState(false);
 
     const onDocumentLoadSuccess =({ numPages }) => {
-        setNumPages(numPages);
         setIsLoading(false);
         setCheckBoxes(new Array(numPages).fill(false));
     }
@@ -43,7 +41,7 @@ const ViewSplitView = ({downloadUrl}) => {
             }
         });
 
-        if(pages.length == 0 ){
+        if(pages.length === 0 ){
             alert('Please select pages');
             return;
         }

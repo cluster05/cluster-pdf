@@ -4,16 +4,20 @@ import { useHistory } from 'react-router';
 
 const ViewImages = () => {
 
-    const [images, setImages] = useState([]);
     const history =  useHistory();
+    const [images, setImages] = useState([]);
+    
     useEffect(() => {
 
         const imgs = JSON.parse(localStorage.getItem('images'))
         if(!imgs){
-            history.push('/');
+            history.push('/pdf-tools');
         }
         setImages(imgs);
-    }, [])
+        return ()=>{
+            localStorage.removeItem('images');
+        }
+    }, [history])
 
     const download = (image) => {
         var element = document.createElement("a");
