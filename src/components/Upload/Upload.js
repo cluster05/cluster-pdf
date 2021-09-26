@@ -44,10 +44,20 @@ const Upload = ({ title, subtitle, color, fileType,APIRequestBody , baseUrl }) =
             
             setLoading(false);
             setUplaodigStage('uploading')
+            
+            if( history.location.pathname === '/pdf-to-image'){
+                localStorage.setItem('images',JSON.stringify(response.data))
+                history.push('/view-images');
+                return
+            }
+
             url = response.data.url.split('/');
             const pdfId = url[url.length - 1];
+
             const splitSlash = history.location.pathname.split('/')
+
             const currentRoute = splitSlash[splitSlash.length-1] ;
+
             history.push(`/view-pdf?filename=${pdfId}&opration=${currentRoute}`);
           
             
