@@ -29,7 +29,7 @@ const UploadSplit = () => {
 
         try {
             const response = await axios.post(
-                'http://localhost:8080/document/upload',
+                `${process.env.BACKEND_BASE_URL}/document/upload`,
                 formData,
                 {
                     headers: {

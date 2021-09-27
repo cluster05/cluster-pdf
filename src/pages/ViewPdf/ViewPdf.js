@@ -16,7 +16,7 @@ const ViewPdf = () => {
     const query = useQuery()
     const filename = query.get('filename');
     const backUrl = query.get('opration');
-    const downloadUrl = `http://localhost:8080/document/${filename}`;
+    const downloadUrl = `${process.env.AWS_BUCKET_URL}/${filename}`;
 
     const [scale, setScale] = useState(1.0);
     const [numPages, setNumPages] = useState(null);

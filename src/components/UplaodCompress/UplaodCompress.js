@@ -30,7 +30,7 @@ const UplaodCompress = () => {
 
         try {
             let response = await axios.post(
-                'http://localhost:8080/document/upload',
+                `${process.env.BACKEND_BASE_URL}/document/upload`,
                 formData,
                 {
                     headers: {
@@ -44,7 +44,7 @@ const UplaodCompress = () => {
             let url = response.data.url;
 
             response = await axios.post(
-                'http://localhost:8080/document/compress',
+                `${process.env.BACKEND_BASE_URL}/document/compress`,
                 {
                     url
                 }

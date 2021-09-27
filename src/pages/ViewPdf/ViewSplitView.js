@@ -48,7 +48,7 @@ const ViewSplitView = ({downloadUrl}) => {
         setIsProcessingStart(true);
         try {
             const response = await axios.post(
-                'http://localhost:8080/document/split',
+                `${process.env.BACKEND_BASE_URL}/document/split`,
                {
                    url : downloadUrl,
                    pages

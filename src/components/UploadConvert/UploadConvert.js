@@ -24,7 +24,7 @@ const UploadConvert = ({ componentMetadata , apiMetadeta }) => {
 
         try {
             let response = await axios.post(
-                'http://localhost:8080/document/upload',
+                `${process.env.BACKEND_BASE_URL}/document/upload`,
                 formData,
                 {
                     headers: {
@@ -40,7 +40,7 @@ const UploadConvert = ({ componentMetadata , apiMetadeta }) => {
             const fromType = urlSplited[urlSplited.length-1];
 
             response = await axios.post(
-                'http://localhost:8080/document/convert',
+                `${process.env.BACKEND_BASE_URL}/document/convert`,
                 {
                     ...APIRequestBody,
                     fromType,
