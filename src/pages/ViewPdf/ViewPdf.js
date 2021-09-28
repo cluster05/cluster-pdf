@@ -4,6 +4,7 @@ import FailedTOLoad from './FailedTOLoad';
 import Loader from './LoadingPDF';
 import { Document, Page, pdfjs } from 'react-pdf';
 import ControlPanel from './ControlPanel';
+import { AWS_BUCKET_URL } from "../../config";
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
@@ -16,7 +17,7 @@ const ViewPdf = () => {
     const query = useQuery()
     const filename = query.get('filename');
     const backUrl = query.get('opration');
-    const downloadUrl = `${process.env.AWS_BUCKET_URL}/${filename}`;
+    const downloadUrl = `${AWS_BUCKET_URL}/${filename}`;
 
     const [scale, setScale] = useState(1.0);
     const [numPages, setNumPages] = useState(null);

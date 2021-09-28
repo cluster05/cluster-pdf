@@ -1,0 +1,3 @@
+import { AWS_BUCKET_URL,BACKEND_BASE_URL } from './config';
+
+export { AWS_BUCKET_URL,BACKEND_BASE_URL }

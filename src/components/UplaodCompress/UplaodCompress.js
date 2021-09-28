@@ -3,6 +3,7 @@ import SelectFileUI from '../SelectFileUI';
 import UploadLoading from '../UploadLoading';
 import axios from 'axios';
 import { useHistory } from 'react-router';
+import { BACKEND_BASE_URL } from '../../config';
 
 
 const UplaodCompress = () => {
@@ -30,7 +31,7 @@ const UplaodCompress = () => {
 
         try {
             let response = await axios.post(
-                `${process.env.BACKEND_BASE_URL}/document/upload`,
+                `${BACKEND_BASE_URL}/document/upload`,
                 formData,
                 {
                     headers: {
@@ -44,7 +45,7 @@ const UplaodCompress = () => {
             let url = response.data.url;
 
             response = await axios.post(
-                `${process.env.BACKEND_BASE_URL}/document/compress`,
+                `${BACKEND_BASE_URL}/document/compress`,
                 {
                     url
                 }

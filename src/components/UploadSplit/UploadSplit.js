@@ -3,6 +3,7 @@ import SelectFileUI from '../SelectFileUI';
 import UploadLoading from '../UploadLoading';
 import axios from 'axios';
 import ViewSplitView from '../../pages/ViewPdf/ViewSplitView';
+import { BACKEND_BASE_URL } from '../../config';
 
 const UploadSplit = () => {
 
@@ -29,7 +30,7 @@ const UploadSplit = () => {
 
         try {
             const response = await axios.post(
-                `${process.env.BACKEND_BASE_URL}/document/upload`,
+                `${BACKEND_BASE_URL}/document/upload`,
                 formData,
                 {
                     headers: {

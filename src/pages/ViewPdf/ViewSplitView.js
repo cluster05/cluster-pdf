@@ -5,6 +5,7 @@ import { Document, Page, pdfjs } from 'react-pdf';
 import axios from 'axios';
 import { useHistory } from 'react-router';
 import { VscLoading } from 'react-icons/vsc';
+import { BACKEND_BASE_URL } from '../../config';
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
@@ -48,7 +49,7 @@ const ViewSplitView = ({downloadUrl}) => {
         setIsProcessingStart(true);
         try {
             const response = await axios.post(
-                `${process.env.BACKEND_BASE_URL}/document/split`,
+                `${BACKEND_BASE_URL}/document/split`,
                {
                    url : downloadUrl,
                    pages
