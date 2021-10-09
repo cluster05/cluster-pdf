@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import SelectFileUI from '../SelectFileUI';
 import UploadLoading from '../UploadLoading';
-import axios from 'axios';
 import { useHistory } from 'react-router';
 import {BiMerge } from 'react-icons/bi';
 import {VscLoading} from 'react-icons/vsc';

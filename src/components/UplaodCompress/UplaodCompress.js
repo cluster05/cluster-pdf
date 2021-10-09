@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import SelectFileUI from '../SelectFileUI';
 import UploadLoading from '../UploadLoading';
-import axios from 'axios';
 import { useHistory } from 'react-router';
 import { documentInstance } from '../../instance';
 
@@ -44,7 +43,7 @@ const UplaodCompress = () => {
             
             let url = response.data.url;
 
-            response = await axios.post('/compress',
+            response = await documentInstance.post('/compress',
                 {
                     url
                 }

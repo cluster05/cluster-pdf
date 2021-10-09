@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import SelectFileUI from '../SelectFileUI';
 import UploadLoading from '../UploadLoading';
-import axios from 'axios';
 import { useHistory } from 'react-router';
 import { documentInstance } from '../../instance';
 
@@ -40,7 +39,7 @@ const UploadConvert = ({ componentMetadata , apiMetadeta }) => {
             const urlSplited = url.split('.');
             const fromType = urlSplited[urlSplited.length-1];
 
-            response = await axios.post(
+            response = await documentInstance.post(
                 '/convert',
                 {
                     ...APIRequestBody,
