@@ -5,7 +5,7 @@ import axios from 'axios';
 import { useHistory } from 'react-router';
 import {BiMerge } from 'react-icons/bi';
 import {VscLoading} from 'react-icons/vsc';
-import { BACKEND_BASE_URL } from '../../config';
+import { documentInstance } from '../../instance';
 
 
 const UploadMerge = () => {
@@ -38,8 +38,8 @@ const UploadMerge = () => {
         setUplaodigStage('uploading')
 
         try {
-            const response = await axios.post(
-                `${BACKEND_BASE_URL}/document/upload`,
+            const response = await documentInstance.post(
+                '/upload',
                 formData,
                 {
                     headers: {
@@ -72,8 +72,8 @@ const UploadMerge = () => {
                 setUplaodigStage('processing');
                 setLoading(true);
 
-                const response = await axios.post(
-                    `${BACKEND_BASE_URL}/document/merge`,
+                const response = await documentInstance.post(
+                    '/merge',
                     {
                         urls
                     }

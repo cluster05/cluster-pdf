@@ -3,7 +3,7 @@ import SelectFileUI from '../SelectFileUI';
 import UploadLoading from '../UploadLoading';
 import axios from 'axios';
 import { useHistory } from 'react-router';
-import { BACKEND_BASE_URL } from '../../config';
+import { documentInstance } from '../../instance';
 
 const UploadConvert = ({ componentMetadata , apiMetadeta }) => {
 
@@ -24,8 +24,8 @@ const UploadConvert = ({ componentMetadata , apiMetadeta }) => {
         setUplaodigStage('uploading')
 
         try {
-            let response = await axios.post(
-                `${BACKEND_BASE_URL}/upload`,
+            let response = await documentInstance.post(
+                '/upload',
                 formData,
                 {
                     headers: {
@@ -41,7 +41,7 @@ const UploadConvert = ({ componentMetadata , apiMetadeta }) => {
             const fromType = urlSplited[urlSplited.length-1];
 
             response = await axios.post(
-                `${BACKEND_BASE_URL}/convert`,
+                '/convert',
                 {
                     ...APIRequestBody,
                     fromType,

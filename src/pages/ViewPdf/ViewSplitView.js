@@ -2,10 +2,9 @@ import React , { useState } from 'react'
 import FailedTOLoad from './FailedTOLoad';
 import Loader from './LoadingPDF';
 import { Document, Page, pdfjs } from 'react-pdf';
-import axios from 'axios';
 import { useHistory } from 'react-router';
 import { VscLoading } from 'react-icons/vsc';
-import { BACKEND_BASE_URL } from '../../config';
+import { documentInstance } from '../../instance';
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
@@ -48,8 +47,8 @@ const ViewSplitView = ({downloadUrl}) => {
         }
         setIsProcessingStart(true);
         try {
-            const response = await axios.post(
-                `${BACKEND_BASE_URL}/document/split`,
+            const response = await documentInstance.post(
+                '/split',
                {
                    url : downloadUrl,
                    pages

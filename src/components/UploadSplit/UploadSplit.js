@@ -1,9 +1,8 @@
 import React, { useState } from 'react'
 import SelectFileUI from '../SelectFileUI';
 import UploadLoading from '../UploadLoading';
-import axios from 'axios';
 import ViewSplitView from '../../pages/ViewPdf/ViewSplitView';
-import { BACKEND_BASE_URL } from '../../config';
+import { documentInstance } from '../../instance';
 
 const UploadSplit = () => {
 
@@ -29,8 +28,8 @@ const UploadSplit = () => {
         setLoading(true);
 
         try {
-            const response = await axios.post(
-                `${BACKEND_BASE_URL}/document/upload`,
+            const response = await documentInstance.post(
+                '/upload',
                 formData,
                 {
                     headers: {

@@ -3,7 +3,7 @@ import SelectFileUI from '../SelectFileUI';
 import UploadLoading from '../UploadLoading';
 import axios from 'axios';
 import { useHistory } from 'react-router';
-import { BACKEND_BASE_URL } from '../../config';
+import { documentInstance } from '../../instance';
 
 
 const UplaodCompress = () => {
@@ -30,8 +30,8 @@ const UplaodCompress = () => {
         setUplaodigStage('uploading')
 
         try {
-            let response = await axios.post(
-                `${BACKEND_BASE_URL}/document/upload`,
+            let response = await documentInstance.post(
+                '/upload',
                 formData,
                 {
                     headers: {
@@ -44,8 +44,7 @@ const UplaodCompress = () => {
             
             let url = response.data.url;
 
-            response = await axios.post(
-                `${BACKEND_BASE_URL}/document/compress`,
+            response = await axios.post('/compress',
                 {
                     url
                 }
