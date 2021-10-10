@@ -14,7 +14,6 @@ const Convert = () => {
     const opration = routename.split("-").join("");
     
     const metadata = getDirection[opration];
-    
     return (
         <div>
             <UploadConvert 

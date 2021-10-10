@@ -55,10 +55,12 @@ export const getDirection ={
             color:"green",
         },
         apiMetaData:{
-            from: 'office',
-            to: 'pdf',
-            fromType : 'excel',
-            toType :'pdf',
+            APIRequestBody:{
+                from: 'office',
+                to: 'pdf',
+                fromType : 'excel',
+                toType :'pdf',
+            }
         }
     },
     'ppttopdf':{
@@ -69,10 +71,12 @@ export const getDirection ={
             color:"yellow",
         },
         apiMetaData:{
-            from: 'office',
-            to: 'pdf',
-            fromType : 'ppt',
-            toType :'pdf',
+            APIRequestBody:{
+                from: 'office',
+                to: 'pdf',
+                fromType : 'ppt',
+                toType :'pdf',
+            }
         }
     },
     'pdftoword':{
@@ -83,10 +87,12 @@ export const getDirection ={
             color:"red",
         },
         apiMetaData:{
-            from: 'pdf',
-            to: 'office',
-            fromType : 'pdf',
-            toType :'excel',
+            APIRequestBody:{
+                from: 'pdf',
+                to: 'office',
+                fromType : 'pdf',
+                toType :'excel',
+            }
         }
     },
     'pdftoexcel':{
@@ -97,10 +103,12 @@ export const getDirection ={
             color:"red",
         },
         apiMetaData:{
-            from: 'pdf',
-            to: 'office',
-            fromType : 'pdf',
-            toType :'excel',
+            APIRequestBody:{
+                from: 'pdf',
+                to: 'office',
+                fromType : 'pdf',
+                toType :'excel',
+            }
         }
     },
     'pdftoppt':{
@@ -111,10 +119,12 @@ export const getDirection ={
             color:"red",
         },
         apiMetaData:{
-            from: 'pdf',
-            to: 'office',
-            fromType : 'pdf',
-            toType :'ppt',
+            APIRequestBody:{
+                from: 'pdf',
+                to: 'office',
+                fromType : 'pdf',
+                toType :'ppt',
+            }
         }
     }
 }
