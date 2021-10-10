@@ -57,7 +57,8 @@ const UplaodCompress = () => {
         } catch (error) {
             setLoading(false);
             setUplaodigStage('uploading')
-            alert(error.response.data.message)
+            const errorMessage = error?.response?.data?.message || 'error occured while processing given opration.';
+            alert(errorMessage)
         }
 
     }

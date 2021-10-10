@@ -59,7 +59,8 @@ const ViewSplitView = ({downloadUrl}) => {
              
         } catch (error) {
             isProcessingStart(false);
-            alert(error.response.data.message)
+            const errorMessage = error?.response?.data?.message || 'error occured while processing given opration.';
+            alert(errorMessage)
         }
     }
 
