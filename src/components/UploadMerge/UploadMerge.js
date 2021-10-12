@@ -12,6 +12,7 @@ const UploadMerge = () => {
   const [uplaodigStage, setUplaodigStage] = useState("uploading");
   const [urls, setUrls] = useState([]);
   const [mongoIds, setMongoIds] = useState([]);
+  const [keys, setKeys] = useState([]);
 
   const componentMetadata = {
     title: "Merge PDF",
@@ -41,10 +42,11 @@ const UploadMerge = () => {
         },
       });
 
-      let { url, mongoId } = response.data;
+      let { url, mongoId, key } = response.data;
 
       setUrls([...urls, url]);
       setMongoIds([...mongoIds, mongoId]);
+      setKeys([...keys, key]);
 
       setLoading(false);
       setUplaodigStage("uploading");
@@ -68,7 +70,8 @@ const UploadMerge = () => {
 
       const response = await documentInstance.post("/merge", {
         urls,
-        keys: mongoIds,
+        keys,
+        mongoId: mongoIds[0],
       });
 
       setUplaodigStage("uploading");
