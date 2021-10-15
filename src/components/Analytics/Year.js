@@ -2,6 +2,21 @@ import React from "react";
 import AnalyticsCard from "./AnalyticsCard";
 
 const Year = ({ data }) => {
+  const monthNames = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+
   return (
     <div>
       <h1 className="m-4 font-black text-6xl">Year</h1>
@@ -10,7 +25,7 @@ const Year = ({ data }) => {
           return (
             <AnalyticsCard
               key={`year_${ele.year}`}
-              title={ele.year}
+              title={`Year ${ele.year}`}
               count={ele.count}
             />
           );
@@ -22,7 +37,7 @@ const Year = ({ data }) => {
           return (
             <AnalyticsCard
               key={`month_${ele.month}`}
-              title={ele.month}
+              title={monthNames[ele.month - 1]}
               count={ele.count}
             />
           );
