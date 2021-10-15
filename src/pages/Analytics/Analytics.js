@@ -7,6 +7,8 @@ const Analytics = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [analyticsData, setAnalyticsData] = useState({});
+  const [view, setView] = useState(false);
+
   const getAnalyticsData = async () => {
     if (username.length < 5 && password.length < 5) {
       alert("invalid username and & passowrd");
@@ -18,6 +20,8 @@ const Analytics = () => {
         password,
       });
       setAnalyticsData(response.data);
+      setUsername("");
+      setPassword("");
     } catch (error) {
       alert(error?.response?.data?.message);
     }
@@ -25,35 +29,44 @@ const Analytics = () => {
 
   return (
     <div>
-      <div className="mb-4 mr-10 flex justify-end items-center">
-        <input
-          className="m-2 p-2  rounded border "
-          onChange={(e) => setUsername(e.target.value)}
-          placeholder="Username"
-          type="text"
-          value={username}
-        />
-        <input
-          className="m-2 p-2  rounded border "
-          onChange={(e) => setPassword(e.target.value)}
-          placeholder="Password"
-          type="password"
-          value={password}
-        />
-        <button
-          onClick={getAnalyticsData}
-          className="px-3 py-2 rounded capitalize shadow font-semibold text-white bg-red-400 hover:bg-red-300 flex items-center"
+      <div className="mb-4 mx-10 flex justify-between items-center">
+        <div
+          onClick={() => setView(!view)}
+          className="px-3 py-2 rounded cursor-pointer capitalize shadow font-semibold text-white bg-blue-400 hover:bg-blue-500 flex items-center"
         >
-          <span>analytics</span>
-        </button>
+          View {view ? "opration " : "year"} distribution
+        </div>
+        <div className="flex items-center">
+          <input
+            className="m-2 p-2  rounded border "
+            onChange={(e) => setUsername(e.target.value)}
+            placeholder="Username"
+            type="text"
+            value={username}
+          />
+          <input
+            className="m-2 p-2  rounded border "
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Password"
+            type="password"
+            value={password}
+          />
+          <button
+            onClick={getAnalyticsData}
+            className="px-3 py-2 rounded capitalize shadow font-semibold text-white bg-red-400 hover:bg-red-500 flex items-center"
+          >
+            <span>analytics</span>
+          </button>
+        </div>
       </div>
       <hr />
       {analyticsData.opration ? (
         <div>
-          <h1 className="m-4 font-black text-6xl">Opration</h1>
-
-          <Opration opration={analyticsData.opration} />
-          <Year data={analyticsData} />
+          {view ? (
+            <Year data={analyticsData} />
+          ) : (
+            <Opration opration={analyticsData.opration} />
+          )}
         </div>
       ) : null}
     </div>
