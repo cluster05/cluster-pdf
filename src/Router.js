@@ -1,6 +1,6 @@
 import React from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
-import Home from "./pages/Home";
+import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
+// import Home from "./pages/Home";
 import Merge from "./pages/PdfTools/Merge";
 import Split from "./pages/PdfTools/Split";
 import ViewPdf from "./pages/ViewPdf/ViewPdf";
@@ -9,13 +9,16 @@ import ViewImages from "./pages/ViewImage/ViewImages";
 import Convert from "./pages/PdfTools/Convert";
 import PDFTools from "./pages/PdfTools";
 import Analytics from "./pages/Analytics/Analytics";
+import PageNotFound from "./pages/PageNotFound";
+import PageUnderProcess from "./pages/PageUnderProcess";
 
 const Router = () => {
   return (
     <BrowserRouter>
       <Switch>
         <Route exact path="/">
-          <Home />
+          {/* <Home /> */}
+          <Redirect to="pdf-tools" />
         </Route>
         <Route exact path="/pdf-tools">
           <PDFTools />
@@ -52,6 +55,12 @@ const Router = () => {
         </Route>
         <Route exact path="/analytics">
           <Analytics />
+        </Route>
+        <Route exact path="/under-process">
+          <PageUnderProcess />
+        </Route>
+        <Route exact path="**">
+          <PageNotFound />
         </Route>
       </Switch>
     </BrowserRouter>
