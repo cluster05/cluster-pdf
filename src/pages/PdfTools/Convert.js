@@ -15,7 +15,7 @@ const Convert = () => {
 
   useEffect(() => {
     if (
-      metadata.apiMetaData.APIRequestBody.from == "pdf" ||
+      metadata.apiMetaData.APIRequestBody.from == "pdf" &&
       metadata.apiMetaData.APIRequestBody.to == "office"
     ) {
       history.push("/under-process");
