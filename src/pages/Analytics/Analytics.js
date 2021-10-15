@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Error from "../../components/Analytics/Error";
 import Opration from "../../components/Analytics/Opration";
 import Year from "../../components/Analytics/Year";
 import { analyticsInstance } from "../../instance";
@@ -65,7 +66,10 @@ const Analytics = () => {
           {view ? (
             <Year data={analyticsData} />
           ) : (
-            <Opration opration={analyticsData.opration} />
+            <div>
+              <Opration opration={analyticsData.opration} />
+              <Error error={analyticsData.failed} />
+            </div>
           )}
         </div>
       ) : null}
