@@ -21,8 +21,6 @@ const Analytics = () => {
         password,
       });
       setAnalyticsData(response.data);
-      setUsername("");
-      setPassword("");
     } catch (error) {
       alert(error?.response?.data?.message);
     }
